@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./clock.css">
+
+
+</head>
+
+<body>
+  <!-- <video autoplay muted loop id="video">
+    <source src="./y2mate.com.mp4">
+  </video> -->
+
+  <div id="video">
+    <video src="./y2mate.com.mp4" autoplay muted loop></video>
+  </div>
+
+  <div id="timenow"></div>
+
+  <!-- 時鐘 -->
+  <div id="clock">
+    <!-- 光暈背景 -->
+    <div class="loader">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div id="hour"></div>
+    <div id="minute"></div>
+    <div id="second"></div>
+  </div>
+
+  <script>
+    const elHour = document.getElementById('hour')
+    const elMinute = document.getElementById('minute')
+    const elSecond = document.getElementById('second')
+
+    setInterval(() => {
+      const date = new Date()
+
+      let timenow = ""
+      document.getElementById("timenow").innerHTML = (date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate() + '   ' + date.getHours() + ':' +  date.getMinutes() + ':' + date.getSeconds())
+      // console.log(timenow);
+
+      elHour.style.transform = `rotate(${date.getHours() * 30 - 90}deg)`
+      elMinute.style.transform = `rotate(${date.getMinutes() * 6 - 90}deg)`
+      elSecond.style.transform = `rotate(${date.getSeconds() * 6 - 90}deg)`
+    }, 1000)
+
+  </script>
+
+</body>
+
+</html>
